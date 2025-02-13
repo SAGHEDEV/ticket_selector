@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --tw-text-opacity: 1;
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 1;
+
+  /* Force colors to be in RGB format */
+  --tw-text-white: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-bg-primary: rgba(3, 30, 33, var(--tw-bg-opacity));
+  --tw-border-accent: rgba(36, 160, 181, var(--tw-border-opacity));
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.ant-select-selector {
+  background: transparent !important;
+  border-color: #07373f !important;
+  color: white !important;
+}
+.ant-upload-drag {
+  border: none !important;
+  background: transparent !important;
+}
+.ant-input,
+.ant-input-affix-wrapper {
+  background: transparent !important;
+  border-color: #07373f !important;
+  color: white !important;
+}
+
+@layer utilities {
+  .page-container {
+    @apply w-full bg-[#08252B] border border-[#0E464F] rounded-3xl !p-4 md:!p-6 flex flex-col justify-start items-center gap-8;
+  }
+}
