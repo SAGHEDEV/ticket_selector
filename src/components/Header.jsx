@@ -6,7 +6,14 @@ const Header = () => {
     <header className="w-full sticky top-4 flex justify-center items-center !py-3 lg:!py-6 z-20 !px-5">
       <div className="w-full md:w-[80%] m-auto bg-[#05252C]/40 backdrop-blur-3xl border border-[#197686] rounded-3xl !p-5 flex justify-between items-center">
         <div>
-          <img src="/assets/full-logo.svg" alt="Ticz" width={92} height={36} />
+          <Link to={"/"}>
+            <img
+              src="/assets/full-logo.svg"
+              alt="Ticz"
+              width={92}
+              height={36}
+            />
+          </Link>
         </div>
         <div className=" hidden md:flex justify-center items-center gap-4 text-lg text-white">
           <Link to="#">Events</Link>
