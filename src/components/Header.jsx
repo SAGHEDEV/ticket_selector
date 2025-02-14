@@ -3,7 +3,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Header = () => {
   return (
-    <header className="w-full sticky top-4 flex justify-center items-center !py-3 lg:!py-6 z-20 !px-5">
+    <header className="w-full sticky top-4 flex justify-center items-center !py-3 !px-2 !md:px-5 lg:!py-6 z-20 ">
       <div className="w-full md:w-[80%] m-auto bg-[#05252C]/40 backdrop-blur-3xl border border-[#197686] rounded-3xl !p-5 flex justify-between items-center">
         <div>
           <Link to={"/"}>
