@@ -14,6 +14,11 @@
 
 * {
   font-family: "Roboto", sans-serif !important;
+  scroll-behavior: smooth !important;
+}
+
+body {
+  scroll-behavior: smooth !important;
 }
 
 .ant-select-selector {

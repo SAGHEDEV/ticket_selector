@@ -133,6 +133,9 @@ const SelectTicket = () => {
           <Button
             htmlType="button"
             className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold"
+            onClick={() => {
+              navigate(-1);
+            }}
           >
             Cancel
           </Button>
