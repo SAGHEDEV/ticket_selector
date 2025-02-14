@@ -5,10 +5,12 @@ import { useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useLocalStorage } from "../../actions/localActions";
+import { useNavigate } from "react-router-dom";
 
 const TicketIsReady = () => {
   const printRef = useRef(null);
-  const { getLocalStorage } = useLocalStorage();
+  const { getLocalStorage, removeLocalStorage } = useLocalStorage();
+  const navigate = useNavigate();
 
   const attendee = getLocalStorage("attendee_details");
 
@@ -42,6 +44,11 @@ const TicketIsReady = () => {
 
     console.log(element);
   };
+
+  const handleBookAnotherTicket = () => {
+    removeLocalStorage("attendee_details");
+    navigate("/");
+  };
   return (
     <div className="w-full flex flex-col gap-10">
       <LevelCounter title={"Ready!!!"} step={3} />
@@ -57,11 +64,18 @@ const TicketIsReady = () => {
               download!
             </span>
           </p>
+          <p className="text-[10px] text-center font-semibold text-gray-200">
+            PS: There is no email sent, it is advisable to download your
+            ticket!😂
+          </p>
         </div>
         <Ticket reference={printRef} />
 
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 text-white">
-          <Button className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold">
+          <Button
+            onClick={handleBookAnotherTicket}
+            className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold"
+          >
             Book another Ticket
           </Button>
           <Button
