@@ -46,7 +46,7 @@ const SelectTicket = () => {
 
       <div className="page-container">
         <div className="w-fit bg-[#0A0C11]/10 border border-[#07373F] border-t-0 !p-4 md:!p-6 flex flex-col gap-3 text-white rounded-3xl">
-          <h2 className="text-4xl md:text-6xl text-center">
+          <h2 className="text-5xl md:text-7xl text-center long-font">
             {EventDetails.name}
           </h2>
           <p className="text-center">{EventDetails.desc}</p>
@@ -132,7 +132,7 @@ const SelectTicket = () => {
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 text-white">
           <Button
             htmlType="button"
-            className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold"
+            className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold !text-lg"
             onClick={() => {
               navigate(-1);
             }}
@@ -142,7 +142,7 @@ const SelectTicket = () => {
           <Button
             htmlType="button"
             onClick={handleNext}
-            className="w-full !bg-[#24A0B5] !text-white border !border-[#197686] rounded-lg !p-3 cursor-pointer hover:opacity-85 hover:!text-white !h-[50px] font-semibold"
+            className="w-full !bg-[#24A0B5] !text-white border !border-[#197686] rounded-lg !p-3 cursor-pointer hover:opacity-85 hover:!text-white !h-[50px] font-semibold !text-lg"
           >
             Next
           </Button>

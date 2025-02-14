@@ -172,14 +172,14 @@ const AttandeeDetails = () => {
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 text-white">
             <Button
               onClick={() => navigate(-1)}
-              className="w-full !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold"
+              className="w-full !text-lg !bg-transparent border !border-[#197686] rounded-lg !p-3 cursor-pointer !text-[#24A0B5] hover:opacity-85 !h-[50px] font-semibold"
             >
               Back
             </Button>
             <Button
               htmlType="submit"
               loading={loading}
-              className="w-full !bg-[#24A0B5] !text-white border !border-[#197686] rounded-lg !p-3 cursor-pointer hover:opacity-85 hover:!text-white !h-[50px] font-semibold"
+              className="w-full !text-lg !bg-[#24A0B5] !text-white border !border-[#197686] rounded-lg !p-3 cursor-pointer hover:opacity-85 hover:!text-white !h-[50px] font-semibold"
             >
               Get my Ticket
             </Button>

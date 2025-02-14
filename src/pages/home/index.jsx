@@ -6,7 +6,7 @@ const Index = () => {
   const navigate = useNavigate();
   return (
     <div className="">
-      <h1 className="text-3xl font-bold text-white">
+      <h1 className="text-3xl text-center md:text-left font-bold text-white">
         All events at your finger tips!!
       </h1>
 
@@ -16,7 +16,7 @@ const Index = () => {
             key={eachEvent.name}
             className="w-fit bg-[#0A0C11]/10 border border-[#07373F]  !p-4 md:!p-6 flex flex-col gap-3 text-white rounded-3xl"
           >
-            <h2 className="text-xl md:text-3xl text-left font-bold">
+            <h2 className="text-4xl md:text-6xl text-left font-bold long-font">
               {eachEvent.name}
             </h2>
             <p className="text-left">{eachEvent.desc}</p>
