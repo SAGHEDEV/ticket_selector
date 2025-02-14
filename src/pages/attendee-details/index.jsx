@@ -32,8 +32,15 @@ const AttandeeDetails = () => {
   const props = {
     name: "file",
     multiple: false,
+    type: "image",
     showUploadList: false,
-    beforeUpload: () => false,
+    beforeUpload: (file) => {
+      const isPNG = file.type === "image/png";
+      if (!isPNG) {
+        messageApi.error(`${file.name} is not a png file`);
+      }
+      return isPNG || Upload.LIST_IGNORE;
+    },
     onChange(info) {
       const file = info.file;
       const fileObj = file.originFileObj || file;
@@ -98,7 +105,15 @@ const AttandeeDetails = () => {
           <div className="w-full bg-[#052228] border border-[#07373F] rounded-3xl flex flex-col gap-4 !p-5">
             <p className="text-white font-semibold">Upload Profile Photo</p>
             <div className="w-full bg-black/20 rounded-3xl flex justify-center items-end">
-              <Form.Item name={"profile_pic"}>
+              <Form.Item
+                name={"profile_pic"}
+                rules={[
+                  {
+                    required: true,
+                    message: "A profile picture is neccessary!",
+                  },
+                ]}
+              >
                 <Dragger {...props} className="!border-none" type="image">
                   <div className="border-4 border-[#24A0B5] rounded-xl bg-[#0E464F] flex flex-col gap-3 items-center text-white">
                     {previewImage ? (
