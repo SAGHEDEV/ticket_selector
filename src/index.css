@@ -16,6 +16,8 @@
 
 * {
   scroll-behavior: smooth !important;
+  transition: all;
+  transition-duration: 0.3s;
 }
 
 body {

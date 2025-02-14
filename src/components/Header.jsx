@@ -24,7 +24,7 @@ const Header = () => {
         <div>
           <button
             type="button"
-            className="!p-4 rounded-xl bg-white text-[#0A0C11] uppercase cursor-pointer hover:bg-gray-50 text-base flex gap-2 items-center"
+            className="group !p-4 rounded-xl bg-white text-[#0A0C11] uppercase cursor-pointer hover:bg-[#24A0B5] hover:text-white text-base flex gap-2 items-center"
           >
             MY Tickets <IoIosArrowRoundForward size={24} />
           </button>

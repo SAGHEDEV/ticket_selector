@@ -70,7 +70,7 @@ const SelectTicket = () => {
             {EventDetails.ticketTypes.map((ticket) => (
               <div
                 key={ticket.value}
-                className={`w-full border border-[#197686] rounded-2xl !p-3 flex justify-between items-start text-white cursor-pointer hover:bg-[#197686]/30 ${
+                className={`w-full border border-[#197686] rounded-2xl !p-3 flex justify-between items-start text-white cursor-pointer hover:bg-[#2C545B] ${
                   chosenTicket === ticket.value
                     ? "bg-[#197686]"
                     : "bg-transparent"
