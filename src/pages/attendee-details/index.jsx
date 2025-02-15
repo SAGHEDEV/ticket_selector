@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Form, Input, message, Upload } from "antd";
+import { Button, Form, Input, message, Spin, Upload } from "antd";
 import { IoMdCloudUpload } from "react-icons/io";
 import { MdMailOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ const { TextArea } = Input;
 const AttandeeDetails = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
+  const [uploadLoading, setUploadLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
@@ -46,10 +47,12 @@ const AttandeeDetails = () => {
     onChange(info) {
       const file = info.file.originFileObj || info.file;
       if (!file) return;
+      setUploadLoading(true);
       setSelectedFile(file);
       const reader = new FileReader();
       reader.onload = (e) => {
         setPreviewImage(e.target?.result);
+        setUploadLoading(false);
       };
       reader.readAsDataURL(file);
     },
@@ -120,7 +123,11 @@ const AttandeeDetails = () => {
               >
                 <Dragger {...props} className="!border-none" type="image">
                   <div className="border-4 border-[#24A0B5] rounded-xl bg-[#0E464F] flex flex-col gap-3 items-center text-white">
-                    {previewImage ? (
+                    {uploadLoading ? (
+                      <div className="w-48 h-48 flex justify-center items-center">
+                        <Spin size="large" />
+                      </div>
+                    ) : previewImage ? (
                       <img
                         src={previewImage}
                         alt="Preview"
