@@ -9,6 +9,7 @@ const { Dragger } = Upload;
 const { TextArea } = Input;
 
 const AttandeeDetails = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
@@ -35,21 +36,24 @@ const AttandeeDetails = () => {
     type: "image",
     showUploadList: false,
     beforeUpload: (file) => {
-      const isPNG = file.type === "image/png";
-      if (!isPNG) {
-        messageApi.error(`${file.name} is not a png file`);
+      const isImage =
+        file.type === "image/png" ||
+        file.type === "image/jpeg" ||
+        file.type === "image/jpg";
+      if (!isImage) {
+        messageApi.error(`${file.name} is not a PNG or JPG file`);
       }
-      return isPNG || Upload.LIST_IGNORE;
+      return isImage || Upload.LIST_IGNORE;
     },
     onChange(info) {
-      const file = info.file;
-      const fileObj = file.originFileObj || file;
-      if (!fileObj) return;
+      const file = info.file.originFileObj || info.file;
+      if (!file) return;
+      setSelectedFile(file); // ✅ Store the actual file object
       const reader = new FileReader();
       reader.onload = (e) => {
         setPreviewImage(e.target?.result);
       };
-      reader.readAsDataURL(fileObj);
+      reader.readAsDataURL(file);
     },
   };
 
@@ -75,13 +79,15 @@ const AttandeeDetails = () => {
 
   const handleProceed = async (e) => {
     setLoading(true);
-    const imageUrl = await uploadToCloud(e.profile_pic?.file);
+    const imageUrl = await uploadToCloud(selectedFile);
+    console.log(imageUrl);
+    console.log(imageUrl?.url);
 
     const attendeeData = {
       name: e.name,
       email: e.email,
       special_request: e.special_request,
-      profile_pic: imageUrl?.url || "",
+      profile_pic: imageUrl?.url,
     };
 
     localStorage.setItem("attendee_details", JSON.stringify(attendeeData));
