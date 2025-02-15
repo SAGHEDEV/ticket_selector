@@ -16,7 +16,6 @@ const AttandeeDetails = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
-  // ✅ Load saved data on mount
   useEffect(() => {
     const savedData = localStorage.getItem("attendee_details");
     if (savedData) {
@@ -24,7 +23,6 @@ const AttandeeDetails = () => {
     }
   }, [form]);
 
-  // ✅ Save form data on change
   const handleFormChange = () => {
     const values = form.getFieldsValue();
     localStorage.setItem("attendee_details", JSON.stringify(values));
@@ -48,7 +46,7 @@ const AttandeeDetails = () => {
     onChange(info) {
       const file = info.file.originFileObj || info.file;
       if (!file) return;
-      setSelectedFile(file); // ✅ Store the actual file object
+      setSelectedFile(file);
       const reader = new FileReader();
       reader.onload = (e) => {
         setPreviewImage(e.target?.result);
@@ -106,7 +104,7 @@ const AttandeeDetails = () => {
           layout="vertical"
           className="w-full flex flex-col gap-5"
           onFinish={handleProceed}
-          onValuesChange={handleFormChange} // ✅ Save on input change
+          onValuesChange={handleFormChange}
         >
           <div className="w-full bg-[#052228] border border-[#07373F] rounded-3xl flex flex-col gap-4 !p-5">
             <p className="text-white font-semibold">Upload Profile Photo</p>
